@@ -9,19 +9,20 @@ var confirmarTakeSnap = false;
 function setup() {
   createCanvas(windowWidth,windowHeight);
   capture = createCapture(VIDEO);
- capture.position(width-850,height-600);
+ capture.position(windowWidth,windowHeight);
+ //captur
   //capture.hide();
  buttonTirarFoto = createButton("take image");
   buttonTirarFoto.position(width/2, height - 60); 
   buttonTirarFoto.mousePressed(takeSnap);
   
-  buttonSalvarFoto = createButton("save image");
-  buttonSalvarFoto.position(width/2 - 100, height - 60);
-  buttonSalvarFoto.mousePressed(saveSnap);
+  
  }
  
  function draw() {
-   background('black')    
+   background('black')  
+   //*camera.y=mouseY
+   console.log(capture.y)
    if(modo == 0){ 
      image(capture,width-850,height-600);   
    }else if(modo == 1){
@@ -42,11 +43,12 @@ function setup() {
   capture.hide();
   
   confirmarTakeSnap = true;
+  if(confirmarTakeSnap){
+    modo = 1;
  }
  
  function saveSnap(){
-   if(confirmarTakeSnap){
-    modo = 1;
+   
    }
  }
   
